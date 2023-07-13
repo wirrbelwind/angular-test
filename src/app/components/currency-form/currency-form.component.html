@@ -1,0 +1,14 @@
+<form [formGroup]="form" (change)="onChange()" class="form">
+  <app-currency-input [formControl]="form.controls.initialAmount" />
+  <app-select
+    [control]="form.controls.initialCurrency"
+    [options]="currencies"
+  />
+
+  <button class="swap" (click)="onSwap()">
+    <img src="../../../assets/swap.svg" alt="" />
+  </button>
+
+  <app-select [control]="form.controls.targetCurrency" [options]="currencies" />
+  <app-currency-input [formControl]="form.controls.targetAmount" />
+</form>

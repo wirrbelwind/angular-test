@@ -1,0 +1,4 @@
+<p class="unitCourse">
+  <span class="currName">{{ currencyCode }}:</span>
+  {{ currencyService.convertCurrency(1, currencyCode, "UAH") | currency : "₴" }}
+</p>

@@ -1,0 +1,5 @@
+<select class="select" [formControl]="control">
+  <option *ngFor="let option of options; let i = index" [value]="option">
+    {{ option | uppercase }}
+  </option>
+</select>

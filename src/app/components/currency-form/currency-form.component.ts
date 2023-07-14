@@ -20,7 +20,7 @@ export class CurrencyFormComponent {
       validators: [Validators.required, Validators.min(0)],
       nonNullable: true
     }),
-    // left currency
+    // left currency select
     "initialCurrency": new FormControl<string>(
       this.currencies[0],
       {
@@ -33,7 +33,7 @@ export class CurrencyFormComponent {
         validators: [Validators.required, Validators.min(0)],
         nonNullable: true
       }),
-    // right currency
+    // right currency select
     "targetCurrency": new FormControl<string>(
       this.currencies[0],
       {
@@ -61,8 +61,7 @@ export class CurrencyFormComponent {
     if (!this.form.valid) {
       return;
     }
-
-    // chose which value to convert
+    // chose which input to convert depend of changed <input> or <select>
     if (this.form.controls.initialAmount.dirty
       || this.form.controls.targetCurrency.dirty) {
 
@@ -81,7 +80,7 @@ export class CurrencyFormComponent {
     this.form.markAsPristine()
   }
 
-  // swaps values of both inputs and values of both selects
+  // swaps values of input's values and select's values
   // so component shouldn't recalculate convertCurrency() method
   onSwap() {
     this.form.setValue({

@@ -19,17 +19,15 @@ export class CurrencyService {
     const initialRate = this.currency.conversion_rates[initialCurrency];
     const targetRate = this.currency.conversion_rates[targetCurrency];
 
-    console.log('convertCurrency', initialCurrency, targetCurrency, initialRate, targetRate);
-    
     if (!initialRate || !targetRate) {
       throw new Error("Invalid currency code");
     }
-
-    if(initialCurrency === targetCurrency) {
+    if (initialCurrency === targetCurrency) {
       return value
     }
 
-    return (value / initialRate) * targetRate;
+    const result = (value / initialRate) * targetRate;
+    return result
   }
 
   queryCurrency(currencyCode: string) {
@@ -45,5 +43,4 @@ export class CurrencyService {
     this.errorService.handle(error.message)
     return throwError(() => error.message)
   }
-
 }

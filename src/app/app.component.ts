@@ -8,7 +8,6 @@ import { CurrencyService } from './services/currency/currency.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Test';
   currencyLoading = false;
 
   constructor(
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
     this.currencyService.queryCurrency('UAH')
       .subscribe(() => {
         this.currencyLoading = false
-        console.log(this.currencyService.currency);
       })
   }
 
